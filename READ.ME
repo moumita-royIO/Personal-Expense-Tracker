@@ -1,0 +1,46 @@
+🚀 Full-Stack Project: Personal Expense Tracker
+🛠 Tech stack:
+
+Frontend → React (or plain HTML/JS if you want it simpler)
+
+Backend → Python (Flask or FastAPI)
+
+Database → MongoDB Atlas (store users + expenses)
+
+Cloud → AWS S3 (store receipts/images), optional AWS Lambda for backend deployment
+
+Auth → JWT or AWS Cognito
+
+
+Features:
+
+User Registration & Login
+
+Users can create an account, stored securely in MongoDB.
+
+JWT tokens handle authentication.
+
+Add Expense
+
+Enter amount, category, description, date.
+
+Data saved in MongoDB Atlas.
+
+Upload Receipt (optional)
+
+Image/file uploaded to AWS S3.
+
+S3 URL is stored in MongoDB along with the expense.
+
+View Expenses
+
+Frontend fetches data from Python backend API.
+
+Users can filter by category/date.
+
+Dashboard
+
+Simple chart (e.g., “Food = $200, Travel = $150”).
+
+Shows monthly totals.
+
