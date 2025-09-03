@@ -21,12 +21,13 @@ if not mongo_uri:
     password = os.getenv("MONGO_PASS")
     host = os.getenv("MONGO_HOST", "localhost:27017")
     database = os.getenv("MONGO_DB")
+    app_name = host.split(".")[0]
     
     if username and password:
         # For MongoDB Atlas or authenticated connections
         if "mongodb.net" in host:
             # MongoDB Atlas format
-            mongo_uri = f"mongodb+srv://{username}:{password}@{host}/{database}?retryWrites=true&w=majority&appName=Cluster0"
+            mongo_uri = f"mongodb+srv://{username}:{password}@{host}/{database}?retryWrites=true&w=majority&appName={app_name}"
         else:
             # Local MongoDB with authentication
             mongo_uri = f"mongodb://{username}:{password}@{host}/{database}"
