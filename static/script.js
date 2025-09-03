@@ -100,3 +100,56 @@ transactionForm.addEventListener('submit', (e) => {
 // Initial call to set up the dashboard when the page loads
 updateSummary();
 renderTransactions();
+
+// Function to delete a transaction
+function deleteTransaction(transactionId) {
+    if (!confirm('Are you sure you want to delete this transaction?')) {
+        return;
+    }
+
+    fetch(`/delete/${transactionId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Remove the transaction from the DOM
+            const transactionElement = document.querySelector(`[data-transaction-id="${transactionId}"]`);
+            if (transactionElement) {
+                transactionElement.remove();
+            }
+            
+            // Show success message
+            showNotification('Transaction deleted successfully!', 'success');
+        } else {
+            showNotification('Error deleting transaction: ' + data.message, 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showNotification('Error deleting transaction', 'error');
+    });
+}
+
+// Function to show notifications
+function showNotification(message, type = 'info') {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 ${
+        type === 'success' ? 'bg-green-500 text-white' : 
+        type === 'error' ? 'bg-red-500 text-white' : 
+        'bg-blue-500 text-white'
+    }`;
+    notification.textContent = message;
+    
+    // Add to DOM
+    document.body.appendChild(notification);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
