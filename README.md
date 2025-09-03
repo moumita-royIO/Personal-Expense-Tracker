@@ -8,9 +8,7 @@ This project is containerized with Docker and can be deployed on AWS App Runner,
 - Frontend: HTML, CSS (Jinja templates)
 - Database: MongoDB Atlas
 - Deployment: Docker, AWS (App Runner, ECS, CloudFront)
-- Data visualization: MongoDB charts for monthly expense reports
-
-
+- Data visualization: MongoDB charts for monthly expense reports.
 
 ## Setup Instructions to test locally
 
@@ -61,8 +59,15 @@ docker run -d -p 5000:5000 --env-file .env expense-tracker
 
 * AWS ECS/Fargate → Scalable container deployment
 
+## MongoDB Charts Integration
+
+- Visualize and analyze expense data using MongoDB Charts.
+
+<img width="1757" height="921" alt="Screenshot 2025-09-03 at 5 57 10 PM" src="https://github.com/user-attachments/assets/26fe20ba-2955-40ae-ad27-588bb52048ad" />
+
 ## Future Enhancements that can be supported:
 - Adding user authentication (login/register)
+- More fields to the form
 
 
 
