@@ -1,4 +1,4 @@
-# Flask Expense Tracker with Jinja Template (Dockerized)
+# Flask Expense Tracker with Jinja Template
 
 A simple Flask-based Expense Tracker web application that allows users to manage their monthly expenses.
 This project is containerized with Docker and can be deployed on AWS App Runner, ECS, or any Docker-compatible platform.
